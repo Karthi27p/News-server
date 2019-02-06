@@ -45,4 +45,20 @@ public class HomeWebService {
 		
 	}
 	
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("update")
+	public void updateHome(HomeDto dto) {
+		service.update(dto);
+	}
+	
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("delete")
+	public void deleteHome(HomeDto dto) {
+		service.delete(dto);
+	}
+	
 }

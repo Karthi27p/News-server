@@ -30,4 +30,23 @@ public class HomeDao {
 		System.out.println("List ==== "+list);
 		return list;
 	}
+	
+	public void updateHome(HomeDto dto, Session session) {
+		
+		Home home = session.find(Home.class, dto.getHomeId());
+		System.out.println("List ==== "+home.getTitle());
+
+		home.setTitle(dto.getTitle());
+		home.setBody(dto.getBody());
+		
+		session.update(home);
+	}
+	
+public void deleteHome(HomeDto dto, Session session) {
+		
+		Home home = session.find(Home.class, dto.getHomeId());
+		System.out.println("List ==== "+home.getTitle());
+		
+		session.delete(home);
+	}
 }

@@ -41,4 +41,29 @@ public class HomeService {
 		return list;
 		
 	}
+	
+	public void update(HomeDto dto) {
+		
+		SessionFactory sf = HibernateUtil.getSessionFactory();
+		Session session = sf.openSession();
+		session.beginTransaction();
+		
+		HomeDao dao = new HomeDao();
+		dao.updateHome(dto, session);
+		
+		session.getTransaction().commit();
+		session.close();
+	}
+	
+	public void delete(HomeDto dto) {
+		SessionFactory sf = HibernateUtil.getSessionFactory();
+		Session session = sf.openSession();
+		session.beginTransaction();
+		
+		HomeDao dao = new HomeDao();
+		dao.deleteHome(dto, session);
+		
+		session.getTransaction().commit();
+		session.close();
+	}
 }
